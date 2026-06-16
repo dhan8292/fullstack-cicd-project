@@ -1,0 +1,60 @@
+body {
+  margin:0;
+  font-family:Arial;
+  background:#111827;
+}
+
+
+.dashboard {
+  color:white;
+  padding:40px;
+}
+
+
+h1 {
+  text-align:center;
+}
+
+
+.cards {
+
+  display:flex;
+  justify-content:center;
+  gap:20px;
+
+}
+
+
+.card {
+
+  background:#1f2937;
+  padding:25px;
+  width:200px;
+  text-align:center;
+  border-radius:10px;
+
+}
+
+
+.card p {
+
+  font-size:30px;
+
+}
+
+
+.running {
+
+color:#22c55e;
+
+}
+
+
+.pipeline {
+
+margin-top:40px;
+background:#1f2937;
+padding:30px;
+border-radius:10px;
+
+}
