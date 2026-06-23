@@ -37,3 +37,41 @@ jobs:
       - name: Push Frontend
         run: |
           docker push dhanu92/frontend
+
+# CD PART STARTS HERE
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+
+          host: ${{ secrets.EC2_HOST }}
+
+          username: ubuntu
+
+          key: ${{ secrets.EC2_SSH_KEY }}
+
+          script: |
+
+            docker pull dhanu92/frontend
+
+            docker pull dhanu92/backend
+
+
+            docker stop frontend || true
+            docker stop backend || true
+
+
+            docker rm frontend || true
+            docker rm backend || true
+
+
+            docker run -d \
+            --name frontend \
+            -p 80:80 \
+            dhanu92/frontend
+
+
+            docker run -d \
+            --name backend \
+            -p 5000:5000 \
+            dhanu92/backend
